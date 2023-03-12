@@ -32,7 +32,7 @@ Documentation: [English version](https://github.com/luolongfei/freenom/blob/main
 
 [📦 通过 Koyeb 部署](#-通过-Koyeb-部署)（推荐没有自己服务器的用户使用此方案，一键部署）
 
-[🧪 通过 Mogenius 部署](#-通过-Mogenius-部署)（如果你无法注册 Koyeb 账户，可以考虑在 Mogenius 部署）
+[🧪 通过 Mogenius 部署](#-通过-Mogenius-部署)（已不可行）
 
 [☁ 通过 各种云函数 部署](#-通过各种云函数部署)
 
@@ -51,6 +51,8 @@ Documentation: [English version](https://github.com/luolongfei/freenom/blob/main
 [📝 TODO List](#-TODO-List)
 
 [📰 更新日志](#-更新日志)（每次新版本发布，可以参考此日志决定是否更新）
+
+[🍅 本项目的其它语言实现](#-本项目的其它语言实现)
 
 [🎉 鸣谢](#-鸣谢)
 
@@ -336,6 +338,9 @@ docker run -d --name freenom --restart always -v $(pwd):/conf -v $(pwd)/logs:/ap
 | TELEGRAM_BOT_TOKEN | 你的`Telegram bot`的`token` |  -  |  否   ||
 | TELEGRAM_BOT_ENABLE | 是否启用`Telegram Bot`推送功能 | `0` |  否   |    `1`：启用<br>`0`：不启用<br>默认不启用，如果设为`1`，则必须设置上面的`TELEGRAM_CHAT_ID`和`TELEGRAM_BOT_TOKEN`变量     |
 | NOTICE_FREQ | 通知频率 | `1` |  否   |                                 `0`：仅当有续期操作的时候<br>`1`：每次执行                                  |
+| NEZHA_SERVER | 哪吒探针服务端的 IP 或域名 |  -  |  否   |
+| NEZHA_PORT | 哪吒探针服务端的端口 |  -  |  否   |  
+| NEZHA_KEY | 哪吒探针客户端专用 Key |  -  |  否   |  
 
 **更多配置项含义，请参考 [.env.example](https://github.com/luolongfei/freenom/blob/main/.env.example) 文件中的注释。**
 
@@ -416,7 +421,7 @@ systemctl restart docker
 
 ### 🧊 通过 Heroku 部署
 
-**Heroku 将于 2022-11-28 停止提供免费服务，所以，忘掉本文吧。官方通告：[https://blog.heroku.com/next-chapter](https://blog.heroku.com/next-chapter)**
+**Heroku 已于 2022-11-28 停止提供免费服务，所以，忘掉本文吧。官方通告：[https://blog.heroku.com/next-chapter](https://blog.heroku.com/next-chapter)**
 
 有关 【通过 Heroku 部署】 的具体操作步骤请参考 [此处](https://github.com/luolongfei/freenom/wiki/%E9%80%9A%E8%BF%87-Heroku-%E9%83%A8%E7%BD%B2)
 
@@ -439,13 +444,13 @@ systemctl restart docker
 
 **在看完上行文档的具体内容，并且你确定你行后**，便可点击下方按钮，尝试一键部署：
 
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=docker&name=freenom&ports=80;http;/&env[FF_TOKEN]=20190214&env[SHOW_SERVER_INFO]=1&env[MOSAIC_SENSITIVE_INFO]=1&env[FREENOM_USERNAME]=&env[FREENOM_PASSWORD]=&env[MULTIPLE_ACCOUNTS]=&env[TELEGRAM_CHAT_ID]=&env[TELEGRAM_BOT_TOKEN]=&env[TELEGRAM_BOT_ENABLE]=0&image=docker.io/luolongfei/freenom:koyeb)
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=docker&name=freenom&ports=80;http;/&env[FF_TOKEN]=20190214&env[SHOW_SERVER_INFO]=1&env[MOSAIC_SENSITIVE_INFO]=1&env[FREENOM_USERNAME]=&env[FREENOM_PASSWORD]=&env[MULTIPLE_ACCOUNTS]=&env[TELEGRAM_CHAT_ID]=&env[TELEGRAM_BOT_TOKEN]=&env[TELEGRAM_BOT_ENABLE]=0&env[TOKEN_OR_URL]=[OPTION]%20Token%20or%20URL&env[NEZHA_SERVER]=[OPTION]%20Nezha%20server&env[NEZHA_PORT]=[OPTION]%20Nezha%20port&env[NEZHA_KEY]=[OPTION]%20Nezha%20key&image=docker.io/luolongfei/freenom:koyeb)
 
 ***
 
 ### 🧪 通过 Mogenius 部署
 
-暂时没时间写详细教程，有兴趣的可以自己尝试一下。参考我此处的说明事项： [https://github.com/luolongfei/freenom/issues/146](https://github.com/luolongfei/freenom/issues/146) 
+已下线免费套餐，不再可用。 [https://github.com/luolongfei/freenom/discussions/208](https://github.com/luolongfei/freenom/discussions/208) 
 
 ***
 
@@ -494,9 +499,11 @@ PayPal: [https://www.paypal.me/mybsdc](https://www.paypal.me/mybsdc)
 
 > Every time you spend money, you're casting a vote for the kind of world you want. -- Anna Lappe
 
-![pay](https://s2.ax1x.com/2020/01/31/1394at.png "Donation")
+![pay](https://images.llfapp.com/pay.png "Donation")
 
 ![每一次你花的钱都是在为你想要的世界投票。](https://s2.ax1x.com/2020/01/31/13P8cF.jpg)
+
+题外话：赞助的时候可以留言，留言内容将被展示在 [赞助列表画面](https://github.com/luolongfei/freenom/wiki/Donation-List) 。如果赞助图片未能正常显示，请访问： [https://images.llfapp.com/pay.png](https://images.llfapp.com/pay.png)
 
 **你的`star`或者`赞助`是我长期维护此项目的动力所在，由衷感谢每一位支持者，“每一次你花的钱都是在为你想要的世界投票”。 另外，将本项目推荐给更多的人，也是一种支持的方式，用的人越多更新的动力越足。**
 
@@ -540,6 +547,13 @@ PayPal: [https://www.paypal.me/mybsdc](https://www.paypal.me/mybsdc)
 - 支持一键部署至 Koyeb、Heroku 等平台，虽然 Heroku 马上要收费了，但 Koyeb 依然免费
 - 优化在各种环境下的目录读写权限判断
 - 支持给日志或者命令行输出内容中的敏感信息打马赛克，默认不启用
+
+### 🍅 本项目的其它语言实现
+
+- [https://github.com/PencilNavigator/Freenom-Workers](https://github.com/PencilNavigator/Freenom-Workers) （JavaScript）
+- [https://github.com/Oreomeow/freenom-py](https://github.com/Oreomeow/freenom-py) （Python） 
+
+*(更多其它语言欢迎提交 PR 更新此列表)*
 
 ### 🎉 鸣谢
 
